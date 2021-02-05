@@ -33,12 +33,12 @@ export const todos = (state = [], action) => {
       return state.filter(t => t.id !== todoToRemove.id);
     }
     case MARK_TODO_AS_COMPLETED: {
-      const { text } = payload;
-      return state.map(todo => {
-        if (todo.text === text) {
-          return {...todo, isCompleted: true};
+      const { todo: updatedTodo } = payload;
+      return state.map(t => {
+        if (t.id === updatedTodo.id) {
+          return updatedTodo;
         }
-        return todo;
+        return t;
       });
     }
     case LOAD_TODOS_SUCCESS: {
