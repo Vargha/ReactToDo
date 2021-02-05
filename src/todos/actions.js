@@ -5,9 +5,9 @@ export const LOAD_TODOS_IN_PROGRESS = 'LOAD_TODOS_IN_PROGRESS';
 export const LOAD_TODOS_SUCCESS = 'LOAD_TODOS_SUCCESS';
 export const LOAD_TODOS_FAILURE = 'LOAD_TODOS_FAILURE';
 
-export const createTodo = text => ({
+export const createTodo = todo => ({
   type: CREATE_TODO,
-  payload: { text },
+  payload: { todo },
 });
 
 export const removeTodo = text => ({
