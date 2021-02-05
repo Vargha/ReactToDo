@@ -10,9 +10,9 @@ export const createTodo = todo => ({
   payload: { todo },
 });
 
-export const removeTodo = text => ({
+export const removeTodo = todo => ({
   type: REMOVE_TODO,
-  payload: { text },
+  payload: { todo },
 });
 
 export const markTodoAsCompleted = text => ({
