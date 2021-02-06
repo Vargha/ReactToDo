@@ -3,8 +3,8 @@ import TodoListItem from './TodoListItem';
 import NewTodoForm from "./NewTodoForm";
 import './TodoList.css'
 import { connect } from 'react-redux';
-import { isLoading } from "./reducers";
 import { loadTodos, removeTodoRequest, markTodoAsCompletedRequest } from "./thunks";
+import { getTodos, getTodosLoading } from "./selectors";
 
 
 const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed, isLoading, startLoadingTodos }) => {
@@ -24,8 +24,8 @@ const TodoList = ({ todos = [], onRemovePressed, onCompletedPressed, isLoading, 
 }
 
 const mapStateToProps = state => ({
-  isLoading: state.isLoading,
-  todos: state.todos,
+  isLoading: getTodosLoading(state),
+  todos: getTodos(state),
 });
 const mapDispatchToProps = dispatch => ({
   startLoadingTodos: () => dispatch(loadTodos()),
